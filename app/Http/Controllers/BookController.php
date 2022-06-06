@@ -34,7 +34,7 @@ class BookController extends Controller
 
     public function getBooks($id)
     {
-        $data =  Book::where('user_id',$id)->get();
+        $data =  Book::where('user_id',$id)->orderBy('id', 'DESC')->get();
 
         return $data;
         
@@ -66,9 +66,9 @@ class BookController extends Controller
            return $item;
         }
         
-    //   function deleteBook($id){
+    //   function deleteBook(Request $request,$id){
 
-    //      $data =  Book::where('id',$id)->delete();
+    //      $data =  Book::where('id',$request->id)->delete();
 
     //      if($data > 0 ){
     //        return response()->json(['message'=>'Successfully Deleted']);
